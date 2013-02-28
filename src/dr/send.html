@@ -3,9 +3,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   </head>
   <body>
-    <form action="https://localhost:9010"
+    <form action="https://localhost:9010/"
 	  method="post" enctype="multipart/form-data">
-      <textarea name="eval" rows="30" cols="50"></textarea>
+      <input type="radio" name="process" value="str" checked/>str<br />
+      <input type="radio" name="process" value="file" />file<br />
+      <input type="hidden" name="charset" value="UTF-8" />
+      <input type="radio" name="content-type" value="text/plain" checked/>text/plain<br />
+      <input type="radio" name="content-type" value="text/html" />text/html<br />
+      <input type="radio" name="content-type" value="application/octet-stream" />application/octet-stream<br />
+      Password: <input type="password" name="password" /><br />
+      <textarea name="code" rows="30" cols="50"></textarea>
       <input type="submit" value="Submit">
     </form>    
   </body>

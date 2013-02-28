@@ -15,7 +15,10 @@ REST-like clojure web REPL server
                                     :ssl-port 9000
                                     :join? false
                                     :keystore "path/to/keystore"
-                                    :key-password "password"}))
+                                    :key-password "password"
+				    :router (-> dr.eval/eval-handler
+				                (dr.eval/wrap-password "password")
+						ring.middleware.multipart-params/wrap-multipart-params}))
 ```
 
 See `send.html` for example request, but basically you just need to
