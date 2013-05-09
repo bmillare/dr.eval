@@ -5,22 +5,10 @@ REST-like clojure web REPL server
 
 ## Goal
 
-* Simplicity
+* Allow clients to evaluate clojure code on the web server
+* Transform evaluation result into a client consumable
 
-## Usage
+## Design
 
-```clojure
-(def eval-server (dr.eval/->server {:ssl? true
-                                    :port 8999
-                                    :ssl-port 9000
-                                    :join? false
-                                    :keystore "path/to/keystore"
-                                    :key-password "password"
-                                    :router (-> dr.eval/eval-handler
-                                                (dr.eval/wrap-password "password")
-                                                ring.middleware.multipart-params/wrap-multipart-params}))
-```
-
-See `send.html` for example request, but basically you just need to
-make a POST request with parameter eval. `dr.eval` will return the
-result of evaluating the expression
+* web clients must specify the clojure function + args, server response adapter, and client response handler
+* this library provides the `eval-handler`, and utilities
