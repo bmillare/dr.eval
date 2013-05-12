@@ -1,5 +1,12 @@
 (ns dr.emitters)
 
+(defn pr-single-quote-str [s]
+  (str "'"
+       (.replaceAll (str s)
+                    "'"
+                    "\\'")
+       "'"))
+
 (defn async-send-eval
   "
 makes server evaluate clojure code, logs code to be sent and result in browser console"
