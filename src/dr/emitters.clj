@@ -7,6 +7,11 @@
                     "\\'")
        "'"))
 
+(defn escape-backslash [^String s]
+  (.replaceAll s
+               "\\"
+               "\\\\"))
+
 (defn async-send-eval
   "
 makes server evaluate clojure code, logs code to be sent and result in browser console"
