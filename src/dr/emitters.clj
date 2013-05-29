@@ -8,9 +8,9 @@
        "'"))
 
 (defn escape-backslash [^String s]
-  (.replaceAll s
-               "\\"
-               "\\\\"))
+  (.replace s
+            "\\"
+            "\\\\"))
 
 (defn async-send-eval
   "
